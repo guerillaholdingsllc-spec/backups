@@ -1,0 +1,19 @@
+{
+  "name": "@fertilityos/ivfcompare",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "next build",
+    "dev": "next dev --hostname 0.0.0.0 --port 3103",
+    "start": "next start --hostname 0.0.0.0 --port 3103",
+    "check": "next build"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
+    "next": "^15.5.18",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "zod": "^3.24.4"
+  }
+}

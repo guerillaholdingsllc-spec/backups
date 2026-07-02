@@ -1,0 +1,30 @@
+﻿{
+    "project_name":  "New project 17",
+    "project_path":  "C:\\Users\\DGARM\\Documents\\New project 17",
+    "owner_agent":  "Master Garmon",
+    "authority":  "own_to_completion",
+    "status":  "active",
+    "granted_by":  "DGARM",
+    "activated_at":  "2026-05-14T20:50:59.6349763Z",
+    "save_rule":  "All generated files, reports, logs, manifests, child-agent outputs, and deployment artifacts for this project must be saved in this Codex partition or Master Garmon\u0027s Codex partition.",
+    "allowed_actions":  [
+                            "read_project_files",
+                            "write_inside_codex_partition",
+                            "analyze_status",
+                            "create_task_plans",
+                            "create_child_agents",
+                            "run_tests",
+                            "prepare_deployment_artifacts",
+                            "track_completion"
+                        ],
+    "child_agents":  [
+                         {
+                             "agent_id":  "autonomous_sales_marketing_funnel_agent",
+                             "agent_name":  "Autonomous Sales & Marketing Funnel Agent",
+                             "status":  "active",
+                             "manifest_path":  "Codex/Master_Garmon/agents/autonomous_sales_marketing_funnel_agent/agent_manifest.json",
+                             "system_prompt_path":  "Codex/Master_Garmon/agents/autonomous_sales_marketing_funnel_agent/system_prompt.md",
+                             "created_at":  "2026-05-15"
+                         }
+                     ]
+}

@@ -1,0 +1,25 @@
+"service","channel","brand","content","draft_created","post_id","status","error"
+"twitter","ProtocolVessel","FertilityFund","ivf_cost_planning","True","6a0a5603d893125e86af375f","draft",
+"twitter","ProtocolVessel","FertilityFund","employer_benefits_questions","True","6a0a5604d893125e86af3779","draft",
+"twitter","ProtocolVessel","MaleGenesis","male_fertility_questions","True","6a0a5605c0f96224ff42e5fa","draft",
+"twitter","ProtocolVessel","IVFCompare","clinic_comparison_questions","True","6a0a5605c0f96224ff42e614","draft",
+"tiktok","vesselprotocol","FertilityFund","ivf_cost_planning","False",,,"Invalid post: TikTok posts require at least one image or video."
+"tiktok","vesselprotocol","FertilityFund","employer_benefits_questions","False",,,"Invalid post: TikTok posts require at least one image or video."
+"tiktok","vesselprotocol","MaleGenesis","male_fertility_questions","False",,,"Invalid post: TikTok posts require at least one image or video."
+"tiktok","vesselprotocol","IVFCompare","clinic_comparison_questions","False",,,"Invalid post: TikTok posts require at least one image or video."
+"pinterest","vessel0434","FertilityFund","ivf_cost_planning","False",,,"Invalid post: Pinterest posts require at least one image."
+"pinterest","vessel0434","FertilityFund","employer_benefits_questions","False",,,"Invalid post: Pinterest posts cannot exceed 500 characters., Pinterest posts require at least one image."
+"pinterest","vessel0434","MaleGenesis","male_fertility_questions","False",,,"Invalid post: Pinterest posts require at least one image."
+"pinterest","vessel0434","IVFCompare","clinic_comparison_questions","False",,,"Invalid post: Pinterest posts require at least one image."
+"facebook","GlocksAndFriedChicken","FertilityFund","ivf_cost_planning","False",,,"Channel not found"
+"facebook","GlocksAndFriedChicken","FertilityFund","employer_benefits_questions","False",,,"Channel not found"
+"facebook","GlocksAndFriedChicken","MaleGenesis","male_fertility_questions","False",,,"Channel not found"
+"facebook","GlocksAndFriedChicken","IVFCompare","clinic_comparison_questions","False",,,"Channel not found"
+"facebook","Sydney Garmon","FertilityFund","ivf_cost_planning","False",,,"Channel not found"
+"facebook","Sydney Garmon","FertilityFund","employer_benefits_questions","False",,,"Channel not found"
+"facebook","Sydney Garmon","MaleGenesis","male_fertility_questions","False",,,"Channel not found"
+"facebook","Sydney Garmon","IVFCompare","clinic_comparison_questions","False",,,"Channel not found"
+"instagram","glocksandfriedchicken","FertilityFund","ivf_cost_planning","False",,,"Channel not found"
+"instagram","glocksandfriedchicken","FertilityFund","employer_benefits_questions","False",,,"Channel not found"
+"instagram","glocksandfriedchicken","MaleGenesis","male_fertility_questions","False",,,"Channel not found"
+"instagram","glocksandfriedchicken","IVFCompare","clinic_comparison_questions","False",,,"Channel not found"

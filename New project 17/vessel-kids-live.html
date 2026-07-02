@@ -1,0 +1,196 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Vessel Kids</title>
+  <style>
+    :root{
+      --sky:#eaf6ff;--mint:#e8fff2;--sun:#fff4bd;--rose:#ffe8ef;--ink:#223047;
+      --blue:#4f8cff;--green:#22a06b;--gold:#c89125;--line:#dbe7f5;--white:#fff;
+    }
+    *{box-sizing:border-box}
+    body{margin:0;font:16px/1.45 Arial,sans-serif;background:linear-gradient(180deg,var(--sky),#fffaf0 55%,var(--mint));color:var(--ink);min-height:100vh}
+    .screen{display:none;max-width:760px;margin:auto;padding:28px 18px 42px}
+    .screen.active{display:block}
+    .top{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:14px}
+    .brand{font-weight:900;color:#31558e;letter-spacing:.02em}
+    h1{font-size:clamp(2.3rem,10vw,4.8rem);line-height:.92;margin:12px 0;color:#31558e}
+    h2{font-size:clamp(1.7rem,7vw,3rem);line-height:1;margin:12px 0;color:#31558e}
+    p{font-size:1.05rem;margin:8px 0 16px}
+    .hero{min-height:78vh;display:grid;align-items:center}
+    .panel{background:rgba(255,255,255,.88);border:1px solid var(--line);border-radius:8px;padding:18px;box-shadow:0 18px 42px rgba(42,77,118,.12)}
+    .quest-map{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:18px 0}
+    .step{background:var(--white);border:1px solid var(--line);border-radius:8px;padding:14px;text-align:center;font-weight:800}
+    .step b{display:block;font-size:2rem;margin-bottom:4px}
+    .btn,button{appearance:none;border:0;border-radius:8px;background:var(--blue);color:white;font-weight:900;font-size:1rem;padding:14px 18px;margin:6px 6px 6px 0;box-shadow:0 8px 18px rgba(79,140,255,.22);cursor:pointer}
+    .btn.secondary,button.secondary{background:white;color:#31558e;border:1px solid var(--line);box-shadow:none}
+    .btn.good,button.good{background:var(--green)}
+    input,select,textarea{width:100%;padding:14px;border:1px solid #c8d8ec;border-radius:8px;margin:8px 0 12px;font-size:1rem;background:white;color:var(--ink)}
+    textarea{min-height:108px;resize:vertical}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(145px,1fr));gap:12px;margin:18px 0}
+    .goal,.card{background:white;border:1px solid var(--line);border-radius:8px;padding:16px;box-shadow:0 12px 28px rgba(42,77,118,.1)}
+    .goal{min-height:118px;text-align:left}
+    .goal.selected{outline:3px solid var(--gold);background:#fff9e8}
+    .goal .icon,.card .icon{width:72px;height:72px;display:block;margin-bottom:10px;border-radius:18px}.step-icon{width:76px;height:76px;display:block;margin:0 auto 8px}.session .icon{width:68px;height:68px;border-radius:18px}
+    .goal strong,.card strong{display:block;font-size:1.05rem;margin-bottom:4px}
+    .tiny{font-size:.95rem;color:#5e6d7e}
+    .dash-head{display:grid;grid-template-columns:1fr auto;gap:14px;align-items:center}
+    .day-badge{background:var(--sun);border:1px solid #efd986;border-radius:8px;padding:14px;text-align:center;font-weight:900;color:#6e4a00}
+    .sessions{display:grid;gap:12px;margin-top:16px}
+    .session{display:grid;grid-template-columns:auto 1fr auto;align-items:center;gap:14px;background:white;border:1px solid var(--line);border-radius:8px;padding:16px;cursor:pointer}
+    .session.done{background:#effff5;border-color:#9fe0bd}
+    .status{font-weight:900;color:var(--gold)}
+    .bubble-wrap{text-align:center}
+    .bubble{width:min(72vw,300px);height:min(72vw,300px);border-radius:50%;background:radial-gradient(circle at 35% 28%,#fff,#cbeeff 48%,#8ed4ff);margin:24px auto;display:grid;place-items:center;font-size:4.8rem;border:8px solid white;box-shadow:0 20px 50px rgba(79,140,255,.22);transition:transform .8s ease}
+    .bubble.grow{transform:scale(1.12)}
+    .mission{background:#fff9e8;border:1px solid #efd986;border-radius:8px;padding:16px;margin:14px 0}
+    .badges{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+    .badge{background:#fff;border:1px solid var(--line);border-radius:8px;padding:8px 10px;font-weight:800}
+    .moods{display:grid;grid-template-columns:repeat(5,1fr);gap:8px;margin:14px 0}
+    .mood{font-size:2rem;background:white;color:var(--ink);box-shadow:none;border:1px solid var(--line);padding:10px 0}
+    .mood.selected{background:var(--sun);outline:3px solid var(--gold)}
+    @media(max-width:560px){.quest-map{grid-template-columns:1fr}.session{grid-template-columns:1fr}.moods{grid-template-columns:repeat(3,1fr)}}
+  </style>
+</head>
+<body>
+  <section id="s-welcome" class="screen active">
+    <div class="hero">
+      <div>
+        <div class="top"><div class="brand">VESSEL KIDS</div><button id="k-music-btn" class="secondary" onclick="kMusic()">Sound</button></div>
+        <h1>Your Daily Quest</h1>
+        <p>Three small steps help you build confidence: breathe, do one brave thing, and notice what went well.</p>
+        <div class="quest-map">
+          <div class="step"><img class="step-icon" src="/kids-icons/rendered/breath.png" alt="">Morning Breath</div>
+          <div class="step"><img class="step-icon" src="/kids-icons/rendered/mission.png" alt="">Today's Mission</div>
+          <div class="step"><img class="step-icon" src="/kids-icons/rendered/evening.png" alt="">Evening Win</div>
+        </div>
+        <button onclick="goTo('s-goals')">Start My Quest</button>
+        <button class="secondary" onclick="goTo('s-parent')">I am a parent</button>
+      </div>
+    </div>
+  </section>
+
+  <section id="s-goals" class="screen">
+    <div class="top"><button class="secondary" onclick="goTo('s-welcome')">Back</button><div class="brand">Step 1</div></div>
+    <h2>Pick your quest areas</h2>
+    <p>Choose one or more. You can change them later.</p>
+    <div id="goals" class="grid"></div>
+    <button onclick="goTo('s-info')">Continue</button>
+  </section>
+
+  <section id="s-info" class="screen">
+    <div class="top"><button class="secondary" onclick="goTo('s-goals')">Back</button><div class="brand">Step 2</div></div>
+    <h2>Who is starting?</h2>
+    <input id="k-name" placeholder="First name">
+    <select id="k-age"><option value="">Age</option><option>10</option><option>11</option><option>12</option><option>13</option><option>14</option><option>15</option></select>
+    <button onclick="goTo('s-commit')">Make My Quest</button>
+  </section>
+
+  <section id="s-commit" class="screen">
+    <div class="panel">
+      <h2>Your quest is ready</h2>
+      <p>Every day has three tiny wins. No pressure. Just practice.</p>
+      <div class="badges"><span class="badge">Day 1 Badge</span><span class="badge">7-Day Builder</span><span class="badge">66-Day Hero</span></div>
+      <button onclick="activateKid()">Begin Day 1</button>
+      <button class="secondary" onclick="goTo('s-info')">Change info</button>
+    </div>
+  </section>
+
+  <section id="s-dash" class="screen">
+    <div class="top"><div class="brand">VESSEL KIDS</div><button id="k-music-btn-2" class="secondary" onclick="kMusic()">Sound</button></div>
+    <div class="dash-head"><div><h2>Hello, <span id="child-name">Explorer</span></h2><p class="tiny">One day at a time.</p></div><div class="day-badge">Day <span id="kd-day">1</span><br><span class="tiny">Streak <span id="kd-streak">0</span></span></div></div>
+    <div class="mission"><strong>Mission preview:</strong><p id="mission-preview">Do one helpful action today.</p></div>
+    <div class="sessions">
+      <div id="card-morning" class="session" onclick="goTo('s-morning')"><img class="icon" src="/kids-icons/rendered/breath.png" alt=""><div><strong>Morning Breath</strong><div class="tiny">Calm your body before the day starts.</div></div><span class="status" id="st-morning">Go</span></div>
+      <div id="card-action" class="session" onclick="goTo('s-action')"><img class="icon" src="/kids-icons/rendered/mission.png" alt=""><div><strong>Today's Mission</strong><div class="tiny">A small real-world action.</div></div><span class="status" id="st-action">Go</span></div>
+      <div id="card-evening" class="session" onclick="goTo('s-evening')"><img class="icon" src="/kids-icons/rendered/evening.png" alt=""><div><strong>Evening Win</strong><div class="tiny">Pick your mood and write one good thing.</div></div><span class="status" id="st-evening">Go</span></div>
+    </div>
+    <div class="badges" id="badge-row"></div>
+    <button class="secondary" onclick="goTo('s-parent')">Parent Dashboard</button>
+  </section>
+
+  <section id="s-morning" class="screen">
+    <div class="top"><button class="secondary" onclick="goTo('s-dash')">Back</button><div class="brand">Morning</div></div>
+    <h2>Bubble Breath</h2>
+    <p>Watch the bubble grow as you breathe in. Let it shrink as you breathe out.</p>
+    <div class="bubble-wrap"><div id="bubble" class="bubble">&#9733;</div><p id="breath-label">Ready?</p></div>
+    <button onclick="startBubbleBreath()">Start Breathing</button>
+    <button class="good" onclick="goTo('s-intention')">I feel ready</button>
+  </section>
+
+  <section id="s-intention" class="screen">
+    <div class="top"><button class="secondary" onclick="goTo('s-morning')">Back</button><div class="brand">Thought</div></div>
+    <h2>Set one kind thought</h2>
+    <textarea id="k-intention" placeholder="Today I want to practice..."></textarea>
+    <button onclick="completeK('morning')">Complete Morning</button>
+  </section>
+
+  <section id="s-action" class="screen">
+    <div class="top"><button class="secondary" onclick="goTo('s-dash')">Back</button><div class="brand">Mission</div></div>
+    <h2>Today's Mission</h2>
+    <div class="mission" id="mission-full"></div>
+    <textarea id="k-action-note" placeholder="What happened when you tried it?"></textarea>
+    <button onclick="completeK('action')">Mission Complete</button>
+  </section>
+
+  <section id="s-evening" class="screen">
+    <div class="top"><button class="secondary" onclick="goTo('s-dash')">Back</button><div class="brand">Evening</div></div>
+    <h2>How did today feel?</h2>
+    <div class="moods" id="moods"></div>
+    <textarea id="k-gratitude" placeholder="One good thing from today was..."></textarea>
+    <button onclick="completeK('evening')">Save My Win</button>
+  </section>
+
+  <section id="s-parent" class="screen">
+    <div class="top"><button class="secondary" onclick="goTo(KS.name?'s-dash':'s-welcome')">Back</button><div class="brand">Parent View</div></div>
+    <h2>Parent Dashboard</h2>
+    <div id="parent-empty" class="panel"><p>No child quest has started yet. Hand the phone to your child and tap Start My Quest.</p><button onclick="goTo('s-welcome')">Start Setup</button></div>
+    <div id="parent-stats" class="grid">
+      <div class="card"><strong>Day</strong><p id="p-day">1</p></div>
+      <div class="card"><strong>Streak</strong><p id="p-streak">0</p></div>
+      <div class="card"><strong>Morning sessions</strong><p id="p-morning">0</p></div>
+      <div class="card"><strong>Last mood</strong><p id="p-mood">-</p></div>
+    </div>
+  </section>
+
+<script>
+const API="/vessel-api";const API_KEY="vessel_api_2026";
+let KS={id:null,name:"",age:"",goals:[],dayCount:1,streak:0,done:{},morningSessions:0,actionsDone:0,lastMood:"-"};
+const GOAL_DATA=[
+  ["School","Practice focus, homework, and confidence.","/kids-icons/rendered/school.png"],
+  ["Home","Help out and feel good at home.","/kids-icons/rendered/home.png"],
+  ["Friends","Practice kindness and brave conversations.","/kids-icons/rendered/friends.png"],
+  ["Sports","Keep showing up and improving.","/kids-icons/rendered/sports.png"],
+  ["Creativity","Make, draw, write, build, or imagine.","/kids-icons/rendered/creativity.png"],
+  ["Inner Peace","Handle big feelings with small tools.","/kids-icons/rendered/peace.png"]
+];
+const MISSIONS={
+  School:["Read one extra page.","Pack your school bag before bedtime.","Ask one question when you need help."],
+  Home:["Do one helpful thing without being asked.","Tell someone at home thank you.","Clean one tiny area for five minutes."],
+  Friends:["Send one kind message.","Invite someone to play or sit with you.","Practice listening without interrupting."],
+  Sports:["Practice one skill for five minutes.","Stretch before or after practice.","Notice one thing you improved."],
+  Creativity:["Draw one idea.","Write three sentences about anything.","Build or make something small."],
+  "Inner Peace":["Take five slow breaths before reacting.","Name the feeling you had today.","Find a quiet spot for two minutes."]
+};
+const K_SCENES={morning:[262,330,392],action:[294,370,440],evening:[220,277,330]};
+function saveK(){localStorage.setItem("vessel_kids_state",JSON.stringify(KS))}
+function loadK(){try{KS={...KS,...JSON.parse(localStorage.getItem("vessel_kids_state")||"{}")}}catch(e){}}
+function goTo(id){document.querySelectorAll(".screen").forEach(s=>s.classList.remove("active"));document.getElementById(id).classList.add("active");if(id==="s-dash")buildDash();if(id==="s-parent")buildParent();if(id==="s-action")renderMission();saveK()}
+function renderGoals(){goals.innerHTML="";GOAL_DATA.forEach(g=>{let b=document.createElement("button");b.className="goal";b.innerHTML=`<img class="icon" src="${g[2]}" alt=""><strong>${g[0]}</strong><span class="tiny">${g[1]}</span>`;b.onclick=()=>{b.classList.toggle("selected");KS.goals=[...document.querySelectorAll(".goal.selected strong")].map(x=>x.textContent);saveK()};goals.appendChild(b)})}
+function mission(){let g=KS.goals[0]||"School";let list=MISSIONS[g]||MISSIONS.School;return list[(KS.dayCount-1)%list.length]}
+function activateKid(){KS.name=document.getElementById("k-name").value||"Explorer";KS.age=document.getElementById("k-age").value||"";KS.id=KS.id||("kid_"+Date.now());saveK();fetch(API+"/kids",{method:"POST",headers:{"Content-Type":"application/json","X-Vessel-Key":API_KEY},body:JSON.stringify({id:KS.id,name:KS.name,age:KS.age,goals:KS.goals,day_count:KS.dayCount,streak:KS.streak})}).catch(()=>{});goTo("s-dash")}
+function buildDash(){document.getElementById("child-name").textContent=KS.name||"Explorer";document.getElementById("kd-day").textContent=KS.dayCount;document.getElementById("kd-streak").textContent=KS.streak;document.getElementById("mission-preview").textContent=mission();["morning","action","evening"].forEach(t=>{document.getElementById("card-"+t).classList.toggle("done",!!KS.done[t]);document.getElementById("st-"+t).textContent=KS.done[t]?"Done":"Go"});let badges=["Day 1"];if(KS.streak>=3)badges.push("3-Day Builder");if(KS.streak>=7)badges.push("7-Day Star");document.getElementById('badge-row').innerHTML=badges.map(b=>`<span class="badge">${b}</span>`).join("")}
+function renderMission(){document.getElementById("mission-full").innerHTML=`<strong>Your quest:</strong><p>${mission()}</p>`}
+function startBubbleBreath(){let i=0;let labels=["Breathe in","Breathe out"];let timer=setInterval(()=>{bubble.classList.toggle("grow");document.getElementById('breath-label').textContent=labels[i%2];kBreathTone(i%2?"out":"in");i++;if(i>10){clearInterval(timer);document.getElementById('breath-label').textContent="Nice work."}},1200)}
+function kBreathTone(dir){try{let a=new AudioContext();let o=a.createOscillator();let g=a.createGain();o.frequency.value=dir==="in"?440:330;g.gain.value=.05;o.connect(g);g.connect(a.destination);o.start();o.stop(a.currentTime+.18)}catch(e){}}
+function completeK(t){KS.done[t]=true;if(t==="morning")KS.morningSessions++;if(t==="action")KS.actionsDone++;if(t==="evening"){let m=document.querySelector(".mood.selected");KS.lastMood=m?m.textContent:"Good"}if(KS.done.morning&&KS.done.action&&KS.done.evening){KS.dayCount++;KS.streak++;KS.done={}}saveK();fetch(API+"/kids/checkin",{method:"POST",headers:{"Content-Type":"application/json","X-Vessel-Key":API_KEY},body:JSON.stringify({kid_id:KS.id||"local",type:t,date:new Date().toISOString().slice(0,10),mood:4,action_done:t==="action",gratitude:document.getElementById("k-gratitude")?.value||""})}).catch(()=>{});goTo("s-dash")}
+function buildParent(){let has=!!KS.name;document.getElementById("parent-empty").style.display=has?"none":"block";document.getElementById("parent-stats").style.display=has?"grid":"none";if(has){document.getElementById("p-day").textContent=KS.dayCount;document.getElementById("p-streak").textContent=KS.streak;document.getElementById("p-morning").textContent=KS.morningSessions;document.getElementById("p-mood").textContent=KS.lastMood}}
+function kMusic(){try{let a=new AudioContext();K_SCENES.morning.forEach((f,i)=>{let o=a.createOscillator();let g=a.createGain();o.frequency.value=f;g.gain.value=.025;o.connect(g);g.connect(a.destination);o.start(a.currentTime+i*.12);o.stop(a.currentTime+.7+i*.12)})}catch(e){}}
+function renderMoods(){["Sad","Okay","Good","Great","Proud"].forEach(m=>{let b=document.createElement("button");b.className="mood";b.textContent=m;b.onclick=()=>{document.querySelectorAll(".mood").forEach(x=>x.classList.remove("selected"));b.classList.add("selected")};moods.appendChild(b)})}
+loadK();renderGoals();renderMoods();if(KS.name){goTo("s-dash")}
+</script>
+</body></html>
+
+
+

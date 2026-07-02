@@ -1,0 +1,8 @@
+date,campaign_id,asset_id,platform,url,cta,views,clicks,calculator_completions,lead_captures,financing_inquiries,notes
+2026-05-16,FOS-FERTILITYFUND-MVP-LAUNCH,FOS-LAUNCH-001,Deployment,https://fertilityos.vercel.app/fertilityfund,Use IVF cost calculator,,,,,,Production deployment live; begin exposure sprint.
+2026-05-16,FOS-FERTILITYFUND-MVP-LAUNCH,FOS-LAUNCH-001,Deployment,https://fertilityfund.vercel.app,Use IVF cost calculator,,,,,,Brand-specific FertilityFund URL confirmed HTTP 200.
+2026-05-16,FOS-MALEGENESIS-MVP-LAUNCH,FOS-LAUNCH-002,Deployment,https://malegenesis.vercel.app,Take male fertility score quiz,,,,,,Brand-specific MaleGenesis URL confirmed HTTP 200.
+2026-05-16,FOS-IVFCOMPARE-MVP-LAUNCH,FOS-LAUNCH-003,Deployment,https://ivfcompare.vercel.app,Compare IVF clinics,,,,,,Brand-specific IVFCompare URL confirmed HTTP 200.
+2026-05-16,FOS-FERTILITYFUND-MVP-LAUNCH,FOS-SMOKE-001,Public QA,https://fertilityfund.vercel.app,Submit financing inquiry,,,,1,1,Consented public lead test stored; auto-reply sent; no-consent submission rejected.
+2026-05-16,FOS-MALEGENESIS-MVP-LAUNCH,FOS-SMOKE-002,Public QA,https://malegenesis.vercel.app,Submit fertility consult inquiry,,,,1,1,Consented public lead test stored; auto-reply sent; no-consent submission rejected.
+2026-05-16,FOS-IVFCOMPARE-MVP-LAUNCH,FOS-SMOKE-003,Public QA,https://ivfcompare.vercel.app,Submit clinic inquiry,,,,1,1,Consented public lead test stored; auto-reply sent; no-consent submission rejected.

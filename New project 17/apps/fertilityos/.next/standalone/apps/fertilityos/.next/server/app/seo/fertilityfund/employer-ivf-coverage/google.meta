@@ -1,0 +1,7 @@
+{
+  "headers": {
+    "x-nextjs-stale-time": "300",
+    "x-nextjs-prerender": "1",
+    "x-next-cache-tags": "_N_T_/layout,_N_T_/seo/layout,_N_T_/seo/fertilityfund/layout,_N_T_/seo/fertilityfund/employer-ivf-coverage/layout,_N_T_/seo/fertilityfund/employer-ivf-coverage/[employer]/layout,_N_T_/seo/fertilityfund/employer-ivf-coverage/[employer]/page,_N_T_/seo/fertilityfund/employer-ivf-coverage/google"
+  }
+}

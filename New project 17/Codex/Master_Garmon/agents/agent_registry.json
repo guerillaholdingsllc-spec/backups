@@ -1,0 +1,17 @@
+{
+  "owner_agent": "Master Garmon",
+  "updated_at": "2026-05-15",
+  "agents": [
+    {
+      "agent_id": "autonomous_sales_marketing_funnel_agent",
+      "agent_name": "Autonomous Sales & Marketing Funnel Agent",
+      "status": "active",
+      "manifest_path": "Codex/Master_Garmon/agents/autonomous_sales_marketing_funnel_agent/agent_manifest.json",
+      "system_prompt_path": "Codex/Master_Garmon/agents/autonomous_sales_marketing_funnel_agent/system_prompt.md",
+      "data_schema_path": "Codex/Master_Garmon/agents/autonomous_sales_marketing_funnel_agent/data_collection_schema.md",
+      "cadence_path": "Codex/Master_Garmon/agents/autonomous_sales_marketing_funnel_agent/campaign_cadence.md",
+      "content_handoff_path": "Codex/Master_Garmon/agents/autonomous_sales_marketing_funnel_agent/content_engine_handoff.md",
+      "paperclip_record_path": "Codex/Master_Garmon/agents/autonomous_sales_marketing_funnel_agent/paperclip_records"
+    }
+  ]
+}

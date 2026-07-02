@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="360" viewBox="0 0 1200 360" role="img" aria-label="CALLUX logo">
+  <rect width="1200" height="360" fill="#0D0F12"/>
+  <g transform="translate(72 70)">
+    <path d="M120 0c66.274 0 120 53.726 120 120s-53.726 120-120 120S0 186.274 0 120 53.726 0 120 0Z" fill="#141820" stroke="#2BB673" stroke-width="8"/>
+    <path d="M72 130c42-72 94-72 136-20" fill="none" stroke="#9BD7FF" stroke-width="14" stroke-linecap="round"/>
+    <circle cx="68" cy="134" r="18" fill="#2BB673"/>
+    <circle cx="208" cy="110" r="18" fill="#2BB673"/>
+    <path d="M120 56l18 38 42 6-30 30 7 42-37-20-37 20 7-42-30-30 42-6 18-38Z" fill="#FFFFFF"/>
+  </g>
+  <text x="356" y="166" fill="#FFFFFF" font-family="Inter, Arial, sans-serif" font-size="100" font-weight="800" letter-spacing="0">CALLUX</text>
+  <text x="363" y="226" fill="#9BD7FF" font-family="Inter, Arial, sans-serif" font-size="32" font-weight="500">Dignity Transport Group</text>
+  <text x="363" y="272" fill="#98A2B3" font-family="Inter, Arial, sans-serif" font-size="24">Dispatch - Certification - Proof of Delivery</text>
+</svg>

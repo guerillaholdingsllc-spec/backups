@@ -1,0 +1,153 @@
+openapi: 3.1.0
+info:
+  title: CALLUX MVP API
+  version: 0.1.0
+servers:
+  - url: https://api.calluxos.com
+security:
+  - bearerAuth: []
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+  schemas:
+    Error:
+      type: object
+      properties:
+        code: { type: string }
+        message: { type: string }
+    CreateCallRequest:
+      type: object
+      required: [origin, destination, callType, market, consent]
+      properties:
+        origin: { type: object }
+        destination: { type: object }
+        callType: { enum: [STANDARD, BARIATRIC, TRAUMA, BIOHAZARD, GOVERNMENT, ELITE] }
+        market: { enum: [SACRAMENTO, BAY_AREA, RENO, STOCKTON] }
+        weightClassLb: { type: integer }
+        ppeLevel: { type: string }
+        preferredWindow: { enum: [ASAP, SCHEDULED] }
+        consent: { type: object }
+    Offer:
+      type: object
+      properties:
+        offerId: { type: string }
+        callId: { type: string }
+        callType: { type: string }
+        driverPay: { type: number }
+        companyShare: { type: number }
+        distanceKm: { type: number }
+        driverEligible: { type: boolean }
+        ttlSeconds: { type: integer }
+paths:
+  /v1/auth/login:
+    post:
+      security: []
+      summary: Login and exchange credentials/OIDC result for a JWT
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email: { type: string }
+                password: { type: string }
+      responses:
+        "200":
+          description: Token response
+        "401":
+          description: Invalid credentials
+  /v1/calls:
+    post:
+      summary: Create a pickup call
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/CreateCallRequest"
+      responses:
+        "201":
+          description: Created
+        "422":
+          description: Consent or certification rule failed
+  /v1/dispatch/offers:
+    get:
+      summary: List available and locked driver offers
+      responses:
+        "200":
+          description: Offers
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: "#/components/schemas/Offer"
+  /v1/dispatch/offers/{id}/accept:
+    post:
+      summary: Accept an offer using first-to-accept locking
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Accepted and locked
+        "409":
+          description: Offer already accepted
+  /v1/calls/{id}/status:
+    post:
+      summary: Update call status
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [status]
+              properties:
+                status: { enum: [ARRIVED, PICKED_UP, DEPARTED, DELIVERED, CANCELLED] }
+                gps: { type: object }
+                notes: { type: string }
+      responses:
+        "200":
+          description: Status updated
+  /v1/pod/{callId}/artifacts:
+    post:
+      summary: Upload or register POD artifacts
+      parameters:
+        - name: callId
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Artifact registered
+  /v1/audit/calls/{id}:
+    get:
+      summary: Get per-call audit timeline
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema: { type: string }
+      responses:
+        "200":
+          description: Audit timeline
+  /v1/billing/invoices:
+    get:
+      summary: List invoices and AR aging
+      responses:
+        "200":
+          description: Invoices
+

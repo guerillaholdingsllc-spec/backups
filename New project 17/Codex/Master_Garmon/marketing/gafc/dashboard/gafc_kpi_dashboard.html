@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Glocks & Fried Chicken KPI Dashboard</title>
+  <style>
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, system-ui, sans-serif; background: #111114; color: #fff7e8; }
+    main { width: min(1180px, calc(100% - 32px)); margin: 0 auto; padding: 28px 0 60px; display: grid; gap: 18px; }
+    header { display: grid; grid-template-columns: auto 1fr auto; gap: 18px; align-items: center; }
+    img { width: 92px; height: 92px; object-fit: cover; border-radius: 8px; background: white; }
+    h1 { font-size: clamp(34px, 5vw, 64px); line-height: .95; margin: 0; letter-spacing: 0; }
+    p { color: #d8cab5; line-height: 1.55; }
+    button, input, select, textarea { font: inherit; }
+    button, .fileButton { border: 0; border-radius: 8px; padding: 11px 14px; background: #e0a82e; color: #17130f; font-weight: 900; cursor: pointer; }
+    .secondary { background: #ffffff18; color: #fff7e8; border: 1px solid #ffffff24; }
+    .actions { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
+    .grid { display: grid; gap: 14px; }
+    .kpis { grid-template-columns: repeat(5, 1fr); }
+    .card { background: #fff8e8; color: #17130f; border: 1px solid #dfcfb4; border-radius: 8px; box-shadow: 0 20px 50px #00000038; overflow: hidden; }
+    .metric { padding: 18px; min-height: 120px; display: grid; align-content: space-between; }
+    .metric span { color: #6e6255; text-transform: uppercase; font-size: 12px; font-weight: 900; letter-spacing: .8px; }
+    .metric strong { font-size: 36px; }
+    .two { grid-template-columns: 1fr 1fr; }
+    .pad { padding: 18px; }
+    form { display: grid; grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    label { display: grid; gap: 6px; color: #3b3024; font-size: 12px; font-weight: 850; }
+    input, select, textarea { width: 100%; border: 1px solid #d3c1a3; border-radius: 8px; padding: 10px; background: #fffdf7; color: #17130f; }
+    textarea { min-height: 70px; resize: vertical; }
+    .wide { grid-column: 1 / -1; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { border-bottom: 1px solid #e5d7c0; padding: 10px; text-align: left; vertical-align: top; }
+    th { color: #655541; font-size: 11px; text-transform: uppercase; letter-spacing: .7px; }
+    .scroll { overflow: auto; max-height: 430px; }
+    .packet { white-space: pre-wrap; background: #fffdf7; border: 1px solid #eadcc8; border-radius: 8px; padding: 14px; font-size: 13px; line-height: 1.45; }
+    @media (max-width: 900px) { header, .kpis, .two, form { grid-template-columns: 1fr; } .actions { justify-content: flex-start; } }
+  </style>
+</head>
+<body>
+  <main>
+    <header>
+      <img src="assets/glocks_fried_chicken_logo.png" alt="Glocks & Fried Chicken logo">
+      <div>
+        <h1>Glocks & Fried Chicken KPI Dashboard</h1>
+        <p>Interactive, auditable, CSV-able campaign dashboard for the local drop waiting list.</p>
+      </div>
+      <div class="actions">
+        <button id="packetBtn">Generate Packet</button>
+        <button class="secondary" id="exportBtn">Export KPI CSV</button>
+        <button class="secondary" id="auditBtn">Export Audit CSV</button>
+        <label class="fileButton secondary" for="importFile">Import CSV</label>
+        <input id="importFile" type="file" accept=".csv,text/csv" hidden>
+      </div>
+    </header>
+
+    <section class="grid kpis">
+      <article class="card metric"><span>Waiting List</span><strong id="signups">0</strong></article>
+      <article class="card metric"><span>Shopify Clicks</span><strong id="clicks">0</strong></article>
+      <article class="card metric"><span>Product Votes</span><strong id="votes">0</strong></article>
+      <article class="card metric"><span>Agent Outputs</span><strong id="outputs">0</strong></article>
+      <article class="card metric"><span>Readiness</span><strong id="readiness">0%</strong></article>
+    </section>
+
+    <section class="grid two">
+      <article class="card pad">
+        <h2>Add Outcome</h2>
+        <form id="entryForm">
+          <label>Date<input name="date" type="date" required></label>
+          <label>Agent<select name="agent_slot"></select></label>
+          <label>Platform<input name="platform" placeholder="Instagram" required></label>
+          <label>Product<input name="product_featured" placeholder="Adult Hoodie"></label>
+          <label>Clicks<input name="clicks" type="number" min="0" value="0"></label>
+          <label>Signups<input name="signups" type="number" min="0" value="0"></label>
+          <label class="wide">Product Requests<input name="product_requests" placeholder="Adult Hoodie: 4; Sticker Pack: 2"></label>
+          <label class="wide">Size Requests<input name="size_requests" placeholder="L: 3; XL: 2; Youth M: 1"></label>
+          <label class="wide">Next Action<textarea name="next_action"></textarea></label>
+          <button class="wide" type="submit">Save Outcome</button>
+        </form>
+      </article>
+      <article class="card pad">
+        <h2>Execution Packet</h2>
+        <div class="packet" id="packet">Click Generate Packet after outcomes are entered or imported.</div>
+      </article>
+    </section>
+
+    <section class="grid two">
+      <article class="card pad scroll">
+        <h2>Records</h2>
+        <table><thead><tr><th>Date</th><th>Agent</th><th>Platform</th><th>Product</th><th>Clicks</th><th>Signups</th><th>Requests</th></tr></thead><tbody id="records"></tbody></table>
+      </article>
+      <article class="card pad scroll">
+        <h2>Audit Trail</h2>
+        <table><thead><tr><th>Time</th><th>Action</th><th>Details</th></tr></thead><tbody id="audit"></tbody></table>
+      </article>
+    </section>
+  </main>
+  <script>
+    const headers = ["date","agent_slot","platform","product_featured","clicks","signups","product_requests","size_requests","next_action"];
+    const products = ["Classic Logo Tee","Gloxsie Character Tee","Bobo Character Tee","Character Grid Tee","Premium Oversized Tee","Glocks & Fried Chicken Hoodie","Vintage Logo Crewneck","Logo Dad Hat","Logo Beanie","Character Sticker Pack"];
+    const recordKey = "gfcDashboardRecordsV1";
+    const auditKey = "gfcDashboardAuditV1";
+    let records = JSON.parse(localStorage.getItem(recordKey) || "[]");
+    let audit = JSON.parse(localStorage.getItem(auditKey) || "[]");
+    const agent = document.querySelector("[name='agent_slot']");
+    for (let i = 1; i <= 25; i++) agent.add(new Option(`Agent ${String(i).padStart(2, "0")}`, String(i).padStart(2, "0")));
+    document.querySelector("[name='date']").valueAsDate = new Date();
+    const n = (v) => Number.isFinite(Number(v)) ? Number(v) : 0;
+    const save = () => { localStorage.setItem(recordKey, JSON.stringify(records)); localStorage.setItem(auditKey, JSON.stringify(audit)); };
+    const esc = (v) => String(v ?? "").replace(/[&<>"']/g, c => ({ "&":"&amp;", "<":"&lt;", ">":"&gt;", "\"":"&quot;", "'":"&#39;" }[c]));
+    const csv = (v) => /[",\n]/.test(String(v ?? "")) ? `"${String(v ?? "").replace(/"/g, '""')}"` : String(v ?? "");
+    function log(action, details) { audit.unshift({ time: new Date().toISOString(), action, details }); save(); render(); }
+    function demandCount() { return records.reduce((sum, r) => sum + products.reduce((a, p) => a + (String(r.product_requests || r.product_featured || "").toLowerCase().includes(p.toLowerCase()) ? 1 : 0), 0), 0); }
+    function render() {
+      const clicks = records.reduce((a, r) => a + n(r.clicks), 0);
+      const signups = records.reduce((a, r) => a + n(r.signups), 0);
+      const votes = demandCount();
+      document.querySelector("#clicks").textContent = clicks;
+      document.querySelector("#signups").textContent = signups;
+      document.querySelector("#votes").textContent = votes;
+      document.querySelector("#outputs").textContent = records.length;
+      document.querySelector("#readiness").textContent = `${Math.min(100, Math.round((signups / 50) * 45 + (votes / 50) * 35 + (clicks / 200) * 20))}%`;
+      document.querySelector("#records").innerHTML = records.map(r => `<tr><td>${esc(r.date)}</td><td>${esc(r.agent_slot)}</td><td>${esc(r.platform)}</td><td>${esc(r.product_featured)}</td><td>${esc(r.clicks)}</td><td>${esc(r.signups)}</td><td>${esc(r.product_requests)}</td></tr>`).join("") || "<tr><td colspan='7'>No records yet.</td></tr>";
+      document.querySelector("#audit").innerHTML = audit.map(a => `<tr><td>${esc(a.time)}</td><td>${esc(a.action)}</td><td>${esc(a.details)}</td></tr>`).join("") || "<tr><td colspan='3'>No audit events yet.</td></tr>";
+    }
+    document.querySelector("#entryForm").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const row = Object.fromEntries(new FormData(e.currentTarget).entries());
+      records.unshift(row);
+      log("outcome_saved", `${row.platform} outcome saved for ${row.agent_slot}.`);
+      e.currentTarget.reset();
+      document.querySelector("[name='date']").valueAsDate = new Date();
+    });
+    document.querySelector("#packetBtn").addEventListener("click", () => {
+      const top = records.find(r => r.product_featured)?.product_featured || "Glocks & Fried Chicken Hoodie";
+      document.querySelector("#packet").textContent = `NEXT GLOCKS & FRIED CHICKEN ORDERS\n\n1. Push ${top} across short-form channels.\n2. Ask the audience what size they want.\n3. Send all traffic to the Shopify waiting list.\n4. Do not claim inventory or pickup details until confirmed.\n5. Export the KPI CSV and attach it to Paperclip.`;
+      log("execution_packet_generated", "Generated next execution packet.");
+    });
+    document.querySelector("#exportBtn").addEventListener("click", () => {
+      const out = [headers.join(","), ...records.map(r => headers.map(h => csv(r[h])).join(","))].join("\n");
+      const a = document.createElement("a"); a.href = URL.createObjectURL(new Blob([out], { type: "text/csv" })); a.download = "glocks-fried-chicken-kpi.csv"; a.click();
+      log("kpi_csv_exported", `${records.length} records exported.`);
+    });
+    document.querySelector("#auditBtn").addEventListener("click", () => {
+      const out = ["time,action,details", ...audit.map(a => [a.time, a.action, a.details].map(csv).join(","))].join("\n");
+      const link = document.createElement("a"); link.href = URL.createObjectURL(new Blob([out], { type: "text/csv" })); link.download = "glocks-fried-chicken-audit.csv"; link.click();
+      log("audit_csv_exported", `${audit.length} audit events exported.`);
+    });
+    log("dashboard_opened", "Dashboard opened.");
+    render();
+  </script>
+</body>
+</html>

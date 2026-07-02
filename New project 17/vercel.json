@@ -1,0 +1,67 @@
+{
+  "installCommand": "npm install",
+  "buildCommand": "npm run build -w apps/fertilityos",
+  "framework": "nextjs",
+  "rewrites": [
+    {
+      "source": "/fertilityfund",
+      "destination": "/fertilityfund"
+    },
+    {
+      "source": "/fertilityfund/:path*",
+      "destination": "/fertilityfund/:path*"
+    },
+    {
+      "source": "/malegenesis",
+      "destination": "/malegenesis"
+    },
+    {
+      "source": "/malegenesis/:path*",
+      "destination": "/malegenesis/:path*"
+    },
+    {
+      "source": "/ivfcompare",
+      "destination": "/ivfcompare"
+    },
+    {
+      "source": "/ivfcompare/:path*",
+      "destination": "/ivfcompare/:path*"
+    },
+    {
+      "source": "/livingtrust/api/:path*",
+      "destination": "/api/:path*"
+    },
+    {
+      "source": "/livingtrust/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/livingtrust/images/:path*",
+      "destination": "/images/:path*"
+    },
+    {
+      "source": "/GAFC/gafc/:path*",
+      "destination": "/gafc/:path*"
+    },
+    {
+      "source": "/GAFC/assets/:path*",
+      "destination": "/assets/:path*"
+    },
+    {
+      "source": "/GAFC",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/GAFC/:path*",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/livingtrust",
+      "destination": "/index.html"
+    },
+    {
+      "source": "/livingtrust/:path*",
+      "destination": "/index.html"
+    }
+  ]
+}

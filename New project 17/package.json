@@ -1,0 +1,19 @@
+{
+  "name": "living-trust-saas",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "apps/*"
+  ],
+  "scripts": {
+    "dev": "concurrently \"npm run dev -w apps/api\" \"npm run dev -w apps/web\" \"npm run dev -w apps/fertilityos\"",
+    "dev:fertilityos": "npm run dev -w apps/fertilityos",
+    "build": "npm run build -w apps/fertilityos",
+    "build:legacy": "npm run build -w apps/web",
+    "start": "npm run start -w apps/api",
+    "check": "npm run check -w apps/api && npm run check -w apps/web && npm run check -w apps/fertilityos"
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}

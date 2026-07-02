@@ -1,0 +1,7 @@
+{
+  "/api/inquiry-respond/route": "/api/inquiry-respond",
+  "/api/events/route": "/api/events",
+  "/api/leads/route": "/api/leads",
+  "/_not-found/page": "/_not-found",
+  "/page": "/"
+}

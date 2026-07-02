@@ -1,0 +1,22 @@
+{
+  "name": "Driver",
+  "type": "object",
+  "properties": {
+    "driverId": { "type": "string" },
+    "name": { "type": "string" },
+    "market": { "type": "string" },
+    "rank": {
+      "type": "string",
+      "enum": ["ROOKIE", "PROFESSIONAL", "SPECIALIST", "SENIOR", "ELITE"]
+    },
+    "rating": { "type": "number" },
+    "callCount": { "type": "number" },
+    "certificationCount": { "type": "number" },
+    "status": {
+      "type": "string",
+      "enum": ["ONLINE", "OFFLINE", "SUSPENDED", "COOLDOWN"]
+    }
+  },
+  "required": ["driverId", "name", "market", "rank", "status"]
+}
+

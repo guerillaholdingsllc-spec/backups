@@ -1,0 +1,24 @@
+name: callux-services-ci
+
+on:
+  push:
+    paths:
+      - "CALLUX/services/**"
+      - "CALLUX/packages/**"
+      - "CALLUX/.github/workflows/services-ci.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      - run: npm install
+        working-directory: CALLUX
+      - run: npm run lint
+        working-directory: CALLUX
+      - run: npm run test
+        working-directory: CALLUX
+

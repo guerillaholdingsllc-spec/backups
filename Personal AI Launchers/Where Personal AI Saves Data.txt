@@ -1,0 +1,14 @@
+﻿PC Personal AI launcher:
+C:\Users\DGARM\Documents\Personal AI Launchers\Launch PC Personal AI - Saves to External.bat
+
+External app folder:
+E:\storage\AI Items\Documents\New project 12
+
+PC version saved memories:
+E:\storage\AI Items\PC Version Vault
+
+Private external AI folder:
+F:\Personal AI Core
+
+Private external saved memories:
+F:\Personal AI Core\data

@@ -1,0 +1,35 @@
+GAFC Media Campaign Package
+
+Included assets:
+- 01_GAFC_Rise_With_GAFC_Instagram_Post.svg
+- 02_GAFC_One_Club_One_Goal_Story.svg
+- 03_GAFC_Built_For_The_Game_Poster.svg
+- 04_GAFC_Season_Campaign_Digital_Banner.svg
+
+Campaign direction:
+- Bold modern football/soccer club media system
+- Deep navy, black, white, metallic gold, and accent red palette
+- Strong condensed athletic typography
+- GAFC as the dominant visual brand
+- Placeholders for dates, location, website, socials, CTAs, and sponsors
+
+Original Kittl / Images 2.0 prompt:
+Create a complete coordinated media campaign design package for GAFC as separate full-size design renderings, not a collage and not thumbnail previews. Produce multiple distinct campaign assets in a bold modern football/soccer club media style with a unified visual system.
+
+Brand: GAFC must be the main visual focus in every asset.
+
+Campaign style: professional athletic club media campaign, high-energy, polished, competitive, modern, dramatic stadium atmosphere. Themes: unity, ambition, community pride, competitive energy.
+
+Color palette: deep navy, black, white, metallic gold, and sharp accent red. Use clean contrast and premium sports branding.
+
+Typography: bold condensed sports headline type, clean modern supporting typography. Keep text legible and intentional.
+
+Visual language: dynamic football/soccer player silhouettes, action motion trails, stadium floodlights, crowd energy, subtle grunge textures, diagonal speed shapes, light flares, pitch-line details, and sponsor/date/social placeholders.
+
+Create separate renderings for:
+1. Instagram square post: headline "Rise With GAFC", dominant GAFC branding, action player silhouette, date/location/social placeholders.
+2. Vertical story slide: headline "One Club. One Goal.", tall dramatic stadium lighting, player silhouette, CTA placeholder.
+3. Event poster/flyer: headline "Built for the Game", GAFC as central title, sponsor logo placeholders along bottom, date/location/website placeholders.
+4. Digital banner: headline "GAFC Season Campaign", wide horizontal sports broadcast feel, clean space for website and social handle.
+
+Important: Each asset should look like a finished professional campaign mockup. Do not place all designs in one collage or grid. No tiny thumbnail sheet. Render them as separate full design outputs with consistent campaign identity.

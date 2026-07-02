@@ -1,0 +1,19 @@
+{
+  "name": "AuditEvent",
+  "type": "object",
+  "properties": {
+    "callId": { "type": "string" },
+    "actorType": {
+      "type": "string",
+      "enum": ["DRIVER", "VENDOR", "ADMIN", "SYSTEM"]
+    },
+    "actorId": { "type": "string" },
+    "event": { "type": "string" },
+    "payloadJson": { "type": "string" },
+    "hash": { "type": "string" },
+    "prevHash": { "type": "string" },
+    "timestamp": { "type": "string", "format": "date-time" }
+  },
+  "required": ["callId", "actorType", "event", "hash", "timestamp"]
+}
+

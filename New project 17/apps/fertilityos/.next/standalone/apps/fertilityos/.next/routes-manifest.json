@@ -1,0 +1,142 @@
+{
+  "version": 3,
+  "pages404": true,
+  "caseSensitive": false,
+  "basePath": "",
+  "redirects": [
+    {
+      "source": "/:path+/",
+      "destination": "/:path+",
+      "internal": true,
+      "statusCode": 308,
+      "regex": "^(?:/((?:[^/]+?)(?:/(?:[^/]+?))*))/$"
+    }
+  ],
+  "headers": [],
+  "rewrites": {
+    "beforeFiles": [],
+    "afterFiles": [],
+    "fallback": []
+  },
+  "dynamicRoutes": [
+    {
+      "page": "/seo/fertilityfund/employer-ivf-coverage/[employer]",
+      "regex": "^/seo/fertilityfund/employer\\-ivf\\-coverage/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPemployer": "nxtPemployer"
+      },
+      "namedRegex": "^/seo/fertilityfund/employer\\-ivf\\-coverage/(?<nxtPemployer>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/seo/fertilityfund/ivf-cost-by-state/[state]",
+      "regex": "^/seo/fertilityfund/ivf\\-cost\\-by\\-state/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPstate": "nxtPstate"
+      },
+      "namedRegex": "^/seo/fertilityfund/ivf\\-cost\\-by\\-state/(?<nxtPstate>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/seo/fertilityfund/ivf-financing/[state]",
+      "regex": "^/seo/fertilityfund/ivf\\-financing/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPstate": "nxtPstate"
+      },
+      "namedRegex": "^/seo/fertilityfund/ivf\\-financing/(?<nxtPstate>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/seo/ivfcompare/best-ivf-clinics/[location]",
+      "regex": "^/seo/ivfcompare/best\\-ivf\\-clinics/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPlocation": "nxtPlocation"
+      },
+      "namedRegex": "^/seo/ivfcompare/best\\-ivf\\-clinics/(?<nxtPlocation>[^/]+?)(?:/)?$"
+    },
+    {
+      "page": "/seo/malegenesis/[topic]",
+      "regex": "^/seo/malegenesis/([^/]+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPtopic": "nxtPtopic"
+      },
+      "namedRegex": "^/seo/malegenesis/(?<nxtPtopic>[^/]+?)(?:/)?$"
+    }
+  ],
+  "staticRoutes": [
+    {
+      "page": "/",
+      "regex": "^/(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/(?:/)?$"
+    },
+    {
+      "page": "/_not-found",
+      "regex": "^/_not\\-found(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/_not\\-found(?:/)?$"
+    },
+    {
+      "page": "/command-center",
+      "regex": "^/command\\-center(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/command\\-center(?:/)?$"
+    },
+    {
+      "page": "/disclosures",
+      "regex": "^/disclosures(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/disclosures(?:/)?$"
+    },
+    {
+      "page": "/fertilityfund",
+      "regex": "^/fertilityfund(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/fertilityfund(?:/)?$"
+    },
+    {
+      "page": "/ivfcompare",
+      "regex": "^/ivfcompare(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/ivfcompare(?:/)?$"
+    },
+    {
+      "page": "/malegenesis",
+      "regex": "^/malegenesis(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/malegenesis(?:/)?$"
+    },
+    {
+      "page": "/privacy",
+      "regex": "^/privacy(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/privacy(?:/)?$"
+    },
+    {
+      "page": "/robots.txt",
+      "regex": "^/robots\\.txt(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/robots\\.txt(?:/)?$"
+    },
+    {
+      "page": "/sitemap.xml",
+      "regex": "^/sitemap\\.xml(?:/)?$",
+      "routeKeys": {},
+      "namedRegex": "^/sitemap\\.xml(?:/)?$"
+    }
+  ],
+  "dataRoutes": [],
+  "rsc": {
+    "header": "rsc",
+    "varyHeader": "rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch",
+    "prefetchHeader": "next-router-prefetch",
+    "didPostponeHeader": "x-nextjs-postponed",
+    "contentTypeHeader": "text/x-component",
+    "suffix": ".rsc",
+    "prefetchSuffix": ".prefetch.rsc",
+    "prefetchSegmentHeader": "next-router-segment-prefetch",
+    "prefetchSegmentSuffix": ".segment.rsc",
+    "prefetchSegmentDirSuffix": ".segments"
+  },
+  "rewriteHeaders": {
+    "pathHeader": "x-nextjs-rewritten-path",
+    "queryHeader": "x-nextjs-rewritten-query"
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "PODArtifact",
+  "type": "object",
+  "properties": {
+    "callId": { "type": "string" },
+    "artifactType": {
+      "type": "string",
+      "enum": ["PHOTO", "SIGNATURE", "DOCUMENT"]
+    },
+    "storageKey": { "type": "string" },
+    "sha256": { "type": "string" },
+    "latitude": { "type": "number" },
+    "longitude": { "type": "number" },
+    "capturedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["callId", "artifactType", "sha256"]
+}
+

@@ -1,0 +1,40 @@
+{
+  "name": "callux",
+  "private": true,
+  "version": "0.1.0",
+  "workspaces": [
+    "services/*",
+    "packages/*",
+    "web/*",
+    "portal/*",
+    "mobile/*"
+  ],
+  "scripts": {
+    "lint": "echo \"wire lint tools here\"",
+    "test": "echo \"wire service tests here\"",
+    "typecheck": "tsc --noEmit",
+    "build": "npm run typecheck"
+  },
+  "devDependencies": {
+    "@types/node": "^25.9.0",
+    "@types/react": "^19.2.14",
+    "@types/react-dom": "^19.2.3",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@aws-sdk/client-s3": "^3.1049.0",
+    "@nestjs/common": "^11.1.21",
+    "@nestjs/core": "^11.1.21",
+    "@nestjs/jwt": "^11.0.2",
+    "@nestjs/passport": "^11.0.5",
+    "@nestjs/platform-express": "^11.1.21",
+    "ioredis": "^5.10.1",
+    "next": "^16.2.6",
+    "react": "^19.2.6",
+    "react-dom": "^19.2.6",
+    "react-native": "^0.85.3",
+    "reflect-metadata": "^0.2.2",
+    "rxjs": "^7.8.2",
+    "typeorm": "^0.3.30"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "Call",
+  "type": "object",
+  "properties": {
+    "callId": { "type": "string" },
+    "orgName": { "type": "string" },
+    "callType": {
+      "type": "string",
+      "enum": ["STANDARD", "BARIATRIC", "TRAUMA", "BIOHAZARD", "GOVERNMENT", "ELITE"]
+    },
+    "market": {
+      "type": "string",
+      "enum": ["SACRAMENTO", "BAY_AREA", "RENO", "STOCKTON"]
+    },
+    "origin": { "type": "string" },
+    "destination": { "type": "string" },
+    "weightClassLb": { "type": "number" },
+    "ppeLevel": { "type": "string" },
+    "status": {
+      "type": "string",
+      "enum": ["OPEN", "OFFERED", "ACCEPTED", "IN_PROGRESS", "DELIVERED", "CANCELLED"]
+    },
+    "slaDueAt": { "type": "string", "format": "date-time" },
+    "assignedDriverId": { "type": "string" }
+  },
+  "required": ["callId", "orgName", "callType", "market", "origin", "destination", "status"]
+}
+

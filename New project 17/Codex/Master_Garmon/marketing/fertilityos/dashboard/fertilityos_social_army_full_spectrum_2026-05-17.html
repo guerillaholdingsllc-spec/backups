@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>FertilityOS Social Media Army - Full Spectrum</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #607086;
+      --line: #dce4ef;
+      --panel: #ffffff;
+      --bg: #f5f7fb;
+      --live: #0f8a5f;
+      --ready: #2459ff;
+      --blocked: #b42318;
+      --amber: #b76e00;
+    }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Arial, sans-serif; background: var(--bg); color: var(--ink); }
+    header { background: #121a2b; color: white; padding: 30px; }
+    header h1 { margin: 0 0 8px; font-size: 32px; }
+    header p { margin: 0; color: #c9d3e2; line-height: 1.5; max-width: 980px; }
+    main { max-width: 1220px; margin: 0 auto; padding: 24px; }
+    .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+    .card, .wide { background: var(--panel); border: 1px solid var(--line); border-radius: 8px; padding: 18px; box-shadow: 0 8px 24px #13213d0a; }
+    .wide { margin-top: 18px; }
+    .stat { font-size: 28px; font-weight: 800; margin-bottom: 5px; }
+    .label { color: var(--muted); font-size: 13px; line-height: 1.4; }
+    h2 { margin: 0 0 14px; font-size: 22px; }
+    h3 { margin: 0 0 8px; font-size: 16px; }
+    table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    th, td { text-align: left; padding: 10px; border-bottom: 1px solid var(--line); vertical-align: top; }
+    th { color: var(--muted); font-size: 12px; text-transform: uppercase; letter-spacing: .03em; }
+    .pill { display: inline-block; padding: 4px 8px; border-radius: 999px; color: white; font-weight: 700; font-size: 12px; }
+    .live { background: var(--live); }
+    .ready { background: var(--ready); }
+    .blocked { background: var(--blocked); }
+    .manual { background: var(--amber); }
+    .lane { display: grid; grid-template-columns: 54px 1fr 130px 190px; gap: 12px; align-items: start; padding: 11px 0; border-bottom: 1px solid var(--line); }
+    .slot { font-weight: 800; color: var(--ready); }
+    .small { color: var(--muted); font-size: 12px; line-height: 1.4; }
+    .urls { display: flex; gap: 10px; flex-wrap: wrap; }
+    .urls a { color: white; background: var(--ready); text-decoration: none; padding: 9px 12px; border-radius: 7px; font-weight: 700; }
+    .warning { background: #fff7ed; border-color: #fed7aa; }
+    .ok { background: #ecfdf5; border-color: #a7f3d0; }
+    @media(max-width: 880px) {
+      .grid { grid-template-columns: 1fr 1fr; }
+      .lane { grid-template-columns: 44px 1fr; }
+      .lane > div:nth-child(3), .lane > div:nth-child(4) { grid-column: 2; }
+    }
+    @media(max-width: 560px) { .grid { grid-template-columns: 1fr; } }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>FertilityOS Social Media Army - Full Spectrum</h1>
+    <p>Operational view for the 25-agent social content army, live landing pages, publishing access, Buffer status, and the exact blockers between campaign-ready and fully autonomous distribution.</p>
+  </header>
+  <main>
+    <section class="grid">
+      <div class="card ok"><div class="stat">3</div><div class="label">Public landing pages live and verified from outside URLs.</div></div>
+      <div class="card ok"><div class="stat">25</div><div class="label">Agent execution lanes defined across short-form, social, repurposing, and KPI reporting.</div></div>
+      <div class="card ok"><div class="stat">6</div><div class="label">Buffer channels detected: X/Twitter, TikTok, Pinterest, Facebook x2, and Instagram.</div></div>
+      <div class="card ok"><div class="stat">16</div><div class="label">Buffer assets created today: 4 Ideas, 4 X drafts, 4 TikTok drafts, and 4 Pinterest drafts.</div></div>
+    </section>
+
+    <section class="wide ok">
+      <h2>Live Destinations</h2>
+      <div class="urls">
+        <a href="https://fertilityfund.vercel.app" target="_blank">FertilityFund</a>
+        <a href="https://malegenesis.vercel.app" target="_blank">MaleGenesis</a>
+        <a href="https://ivfcompare.vercel.app" target="_blank">IVFCompare</a>
+      </div>
+    </section>
+
+    <section class="wide">
+      <h2>Access Matrix</h2>
+      <table>
+        <thead><tr><th>System</th><th>Status</th><th>What We Have</th><th>What Is Needed For Full Autonomy</th></tr></thead>
+        <tbody>
+          <tr><td>Landing Pages</td><td><span class="pill live">Live</span></td><td>FertilityFund, MaleGenesis, IVFCompare public URLs.</td><td>Custom domains optional later.</td></tr>
+          <tr><td>Lead Capture</td><td><span class="pill live">Live</span></td><td>Supabase writes, consent gate, Brevo auto-reply.</td><td>Buyer/handoff partner selection.</td></tr>
+          <tr><td>Buffer</td><td><span class="pill live">Live</span></td><td>Fresh token verified. Ideas and drafts created.</td><td>Use Buffer UI to approve/schedule, or approve automatic queueing.</td></tr>
+          <tr><td>X/Twitter</td><td><span class="pill live">Drafted</span></td><td>4 FertilityOS drafts created on `ProtocolVessel`.</td><td>Approve brand fit before publishing from a Vessel-branded channel.</td></tr>
+          <tr><td>TikTok</td><td><span class="pill live">Drafted</span></td><td>4 FertilityOS media drafts created on `vesselprotocol`.</td><td>Approve brand fit before publishing from a Vessel-branded channel.</td></tr>
+          <tr><td>Pinterest</td><td><span class="pill live">Drafted</span></td><td>4 FertilityOS image drafts created on `vessel0434`.</td><td>Approve brand fit before publishing from a Vessel-branded channel.</td></tr>
+          <tr><td>Facebook</td><td><span class="pill manual">Read Only</span></td><td>Channels visible: `GlocksAndFriedChicken`, `Sydney Garmon`; create calls returned Channel not found.</td><td>Reconnect Facebook channels in Buffer or approve manual posting.</td></tr>
+          <tr><td>Instagram</td><td><span class="pill manual">Read Only</span></td><td>Channel visible: `glocksandfriedchicken`; create calls returned Channel not found.</td><td>Reconnect Instagram in Buffer or approve manual posting.</td></tr>
+          <tr><td>LinkedIn</td><td><span class="pill ready">Content Ready</span></td><td>Authority post and carousel lanes.</td><td>LinkedIn page/profile connection through Buffer or approved connector.</td></tr>
+          <tr><td>YouTube</td><td><span class="pill ready">Content Ready</span></td><td>Shorts and long-form lanes.</td><td>YouTube channel OAuth and video assets.</td></tr>
+          <tr><td>BlueSky</td><td><span class="pill ready">Code Pattern Exists</span></td><td>Prior Penelope code includes Bluesky publisher pattern.</td><td>Brand handle/app password and updated content adapter.</td></tr>
+          <tr><td>Truth Social</td><td><span class="pill ready">Content Ready</span></td><td>Posting lanes and content prompts.</td><td>Publishing connector or manual posting workflow.</td></tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section class="wide">
+      <h2>25-Agent Execution Lanes</h2>
+      <div class="lane"><div class="slot">01</div><div><h3>Instagram Reels</h3><div class="small">Short video scripts for IVF cost, benefits questions, and male fertility education.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs IG/Buffer connection</div></div>
+      <div class="lane"><div class="slot">02</div><div><h3>Instagram Stories</h3><div class="small">Polls, checklist prompts, link taps, question boxes.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs IG business account</div></div>
+      <div class="lane"><div class="slot">03</div><div><h3>Instagram Carousel</h3><div class="small">Saveable IVF benefits and clinic comparison checklists.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs creative export</div></div>
+      <div class="lane"><div class="slot">04</div><div><h3>Instagram Engagement</h3><div class="small">Comment prompts and reply-safe education language.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Manual until account connected</div></div>
+      <div class="lane"><div class="slot">05</div><div><h3>YouTube Shorts</h3><div class="small">30-second calculator and comparison explainer scripts.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs video production</div></div>
+      <div class="lane"><div class="slot">06</div><div><h3>YouTube Long-Form</h3><div class="small">Educational outlines for IVF cost, clinic questions, and benefits literacy.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs channel OAuth</div></div>
+      <div class="lane"><div class="slot">07</div><div><h3>YouTube Title/Thumbnail Testing</h3><div class="small">CTR test concepts and thumbnail hooks.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs creative assets</div></div>
+      <div class="lane"><div class="slot">08</div><div><h3>TikTok Short-Form</h3><div class="small">Creator-style short scripts with educational disclaimers.</div></div><div><span class="pill manual">Cached</span></div><div class="small">Old Buffer TikTok channel found</div></div>
+      <div class="lane"><div class="slot">09</div><div><h3>TikTok Trend Adaptation</h3><div class="small">Trend-safe adaptation notes without medical claims.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs active publisher</div></div>
+      <div class="lane"><div class="slot">10</div><div><h3>TikTok Comments</h3><div class="small">Reply prompts and moderation guardrails.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs account access</div></div>
+      <div class="lane"><div class="slot">11</div><div><h3>X/Twitter Short Posts</h3><div class="small">Launch posts with UTM links.</div></div><div><span class="pill manual">Cached</span></div><div class="small">Old Buffer X channel found</div></div>
+      <div class="lane"><div class="slot">12</div><div><h3>X/Twitter Threads</h3><div class="small">IVF cost, benefits, and clinic question threads.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs publisher</div></div>
+      <div class="lane"><div class="slot">13</div><div><h3>X/Twitter Engagement</h3><div class="small">Reply prompts and quote-post prompts.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs publisher</div></div>
+      <div class="lane"><div class="slot">14</div><div><h3>Facebook Feed</h3><div class="small">Educational feed posts for FertilityFund and IVFCompare.</div></div><div><span class="pill manual">Cached</span></div><div class="small">Old Buffer Facebook channels found</div></div>
+      <div class="lane"><div class="slot">15</div><div><h3>Facebook Groups</h3><div class="small">Group-safe posts that follow rules and avoid spam behavior.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Manual review recommended</div></div>
+      <div class="lane"><div class="slot">16</div><div><h3>Facebook Stories/Video</h3><div class="small">Story and short video content adaptations.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs active publisher</div></div>
+      <div class="lane"><div class="slot">17</div><div><h3>BlueSky Posts</h3><div class="small">Short conversation starters and link posts.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs brand app password</div></div>
+      <div class="lane"><div class="slot">18</div><div><h3>BlueSky Conversations</h3><div class="small">Question-led engagement prompts.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs account access</div></div>
+      <div class="lane"><div class="slot">19</div><div><h3>Truth Social Posts</h3><div class="small">Value-driven campaign copy.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs connector/manual</div></div>
+      <div class="lane"><div class="slot">20</div><div><h3>Truth Social Engagement</h3><div class="small">Benefits question prompts and discussion starters.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs connector/manual</div></div>
+      <div class="lane"><div class="slot">21</div><div><h3>LinkedIn Authority</h3><div class="small">Employer benefits and fertility decision infrastructure posts.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs LinkedIn publishing access</div></div>
+      <div class="lane"><div class="slot">22</div><div><h3>LinkedIn Carousel/Article</h3><div class="small">Carousel copy and article outlines.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs creative export</div></div>
+      <div class="lane"><div class="slot">23</div><div><h3>LinkedIn Lead Magnet/DM</h3><div class="small">DM-safe follow-up drafts and lead magnet posts.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Do not automate DMs without review</div></div>
+      <div class="lane"><div class="slot">24</div><div><h3>Repurposing</h3><div class="small">Turns one angle into scripts, posts, carousels, and captions.</div></div><div><span class="pill live">Active</span></div><div class="small">Docs and queue created</div></div>
+      <div class="lane"><div class="slot">25</div><div><h3>KPI Collection</h3><div class="small">Tracks posts, clicks, leads, completions, and compliance issues.</div></div><div><span class="pill ready">Ready</span></div><div class="small">Needs live platform metrics access</div></div>
+    </section>
+
+    <section class="wide warning">
+      <h2>Immediate Unlock</h2>
+      <p>Buffer is now authenticated and populated with FertilityOS campaign assets. Nothing has been published publicly by Codex. Drafts were created first because the connected channels are currently Vessel/GAFC/Sydney channels rather than FertilityOS-branded channels. Next unlock: approve publishing from the existing channels, or connect dedicated FertilityFund, MaleGenesis, and IVFCompare channels in Buffer.</p>
+    </section>
+  </main>
+</body>
+</html>

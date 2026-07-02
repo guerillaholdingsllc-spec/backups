@@ -1,0 +1,1 @@
+self.addEventListener('push',event=>{let data={title:'Vessel',body:'Your protocol is ready.',icon:'/vessel-icon.png',badge:'/vessel-badge.png'};try{data={...data,...event.data.json()}}catch(e){}event.waitUntil(self.registration.showNotification(data.title,data))});

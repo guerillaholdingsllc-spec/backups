@@ -1,0 +1,20 @@
+{
+  "/api/ai/route": "/api/ai",
+  "/api/events/route": "/api/events",
+  "/api/leads/route": "/api/leads",
+  "/sitemap.xml/route": "/sitemap.xml",
+  "/robots.txt/route": "/robots.txt",
+  "/_not-found/page": "/_not-found",
+  "/page": "/",
+  "/disclosures/page": "/disclosures",
+  "/fertilityfund/page": "/fertilityfund",
+  "/ivfcompare/page": "/ivfcompare",
+  "/command-center/page": "/command-center",
+  "/privacy/page": "/privacy",
+  "/seo/fertilityfund/ivf-cost-by-state/[state]/page": "/seo/fertilityfund/ivf-cost-by-state/[state]",
+  "/malegenesis/page": "/malegenesis",
+  "/seo/fertilityfund/ivf-financing/[state]/page": "/seo/fertilityfund/ivf-financing/[state]",
+  "/seo/ivfcompare/best-ivf-clinics/[location]/page": "/seo/ivfcompare/best-ivf-clinics/[location]",
+  "/seo/fertilityfund/employer-ivf-coverage/[employer]/page": "/seo/fertilityfund/employer-ivf-coverage/[employer]",
+  "/seo/malegenesis/[topic]/page": "/seo/malegenesis/[topic]"
+}

@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "node",
+    "jsx": "react-jsx",
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@callux/types": ["packages/types/src/index.ts"],
+      "@callux/common/*": ["packages/common/src/*"]
+    }
+  },
+  "include": [
+    "packages/**/*.ts",
+    "services/**/*.ts",
+    "web/**/*.tsx",
+    "portal/**/*.tsx",
+    "mobile/**/*.tsx"
+  ],
+  "exclude": ["node_modules"]
+}

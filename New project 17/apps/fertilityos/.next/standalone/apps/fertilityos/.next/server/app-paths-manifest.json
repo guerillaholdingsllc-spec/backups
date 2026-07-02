@@ -1,0 +1,20 @@
+{
+  "/api/ai/route": "app/api/ai/route.js",
+  "/api/events/route": "app/api/events/route.js",
+  "/api/leads/route": "app/api/leads/route.js",
+  "/sitemap.xml/route": "app/sitemap.xml/route.js",
+  "/robots.txt/route": "app/robots.txt/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/disclosures/page": "app/disclosures/page.js",
+  "/fertilityfund/page": "app/fertilityfund/page.js",
+  "/ivfcompare/page": "app/ivfcompare/page.js",
+  "/command-center/page": "app/command-center/page.js",
+  "/privacy/page": "app/privacy/page.js",
+  "/seo/fertilityfund/ivf-cost-by-state/[state]/page": "app/seo/fertilityfund/ivf-cost-by-state/[state]/page.js",
+  "/malegenesis/page": "app/malegenesis/page.js",
+  "/seo/fertilityfund/ivf-financing/[state]/page": "app/seo/fertilityfund/ivf-financing/[state]/page.js",
+  "/seo/ivfcompare/best-ivf-clinics/[location]/page": "app/seo/ivfcompare/best-ivf-clinics/[location]/page.js",
+  "/seo/fertilityfund/employer-ivf-coverage/[employer]/page": "app/seo/fertilityfund/employer-ivf-coverage/[employer]/page.js",
+  "/seo/malegenesis/[topic]/page": "app/seo/malegenesis/[topic]/page.js"
+}

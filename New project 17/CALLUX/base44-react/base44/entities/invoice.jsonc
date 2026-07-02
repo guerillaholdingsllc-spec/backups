@@ -1,0 +1,19 @@
+{
+  "name": "Invoice",
+  "type": "object",
+  "properties": {
+    "invoiceId": { "type": "string" },
+    "orgName": { "type": "string" },
+    "callId": { "type": "string" },
+    "gross": { "type": "number" },
+    "companyShare": { "type": "number" },
+    "driverShare": { "type": "number" },
+    "status": {
+      "type": "string",
+      "enum": ["DRAFT", "SENT", "PAID", "OVERDUE", "VOID"]
+    },
+    "dueAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["invoiceId", "orgName", "gross", "companyShare", "driverShare", "status"]
+}
+

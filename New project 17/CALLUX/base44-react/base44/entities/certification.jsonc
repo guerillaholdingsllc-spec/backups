@@ -1,0 +1,17 @@
+{
+  "name": "Certification",
+  "type": "object",
+  "properties": {
+    "driverId": { "type": "string" },
+    "level": { "type": "number" },
+    "name": { "type": "string" },
+    "pricePaid": { "type": "number" },
+    "status": {
+      "type": "string",
+      "enum": ["NOT_STARTED", "IN_PROGRESS", "COMPLETED", "EXPIRED"]
+    },
+    "completedAt": { "type": "string", "format": "date-time" }
+  },
+  "required": ["driverId", "level", "name", "status"]
+}
+
